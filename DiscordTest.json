@@ -1,0 +1,20 @@
+function postimgToDiscord() {
+
+  var link = "https://imageURL.jpg";
+  var img = UrlFetchApp.fetch(link).getBlob();
+
+  var discordUrl = "https://discordapp.com/api/webhooks/yourwebhook";
+
+  var payload = {
+    file: img,
+  };
+
+  var params = {
+    method: "post",
+    payload: payload,
+    muteHttpExceptions: true
+  };
+
+  var response = UrlFetchApp.fetch(discordUrl, params);
+
+}
